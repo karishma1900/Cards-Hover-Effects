@@ -1,0 +1,124 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 1200px;
+    position: relative;
+    justify-content: center;
+    top:0;
+
+    
+    margin:auto;
+}
+.grids{
+   display:grid;
+   grid-template-columns: repeat(3,1fr);
+    column-gap: 30px;
+    margin: 180px 0px;
+}
+.card{
+    position: relative;
+}
+.card-img img{
+width:400px;
+height:300px;
+box-sizing: border-box;
+object-fit: cover;
+}
+.card-text{
+    padding:20px 10px;
+}
+.card-text h3{
+    font-size: 29px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-weight: 200px;
+}
+.card-text p{
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.card1{
+    transition: scale 0.3s ,opacity 0.5s;
+    cursor: pointer;
+
+    &:hover{
+        transform: scale(1.01);
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .15);
+        
+    }
+}
+.card2{
+    /* padding:20px; */
+    padding:20px;
+
+&::before, &::after{
+content:"";
+position: absolute;
+top:0;
+right:0;
+bottom: 0;
+
+left:0;
+opacity:0;
+transition: opacity .38s ease-in-out, transform .35s ease-in-out;
+
+
+pointer-events:none;
+    }
+
+    &::before{
+        transform: scale3d(0, 1, 1);
+        transform-origin: left top;
+        border-top: 1px solid #acacac;
+        border-bottom: 1px solid #acacac;
+    }
+
+    &::after{
+        transform: scale3d(1, 0, 1);
+        transform-origin: right top;
+        border-right:1px solid #acacac;
+        border-left:1px solid #acacac;
+    }
+
+    &:hover, &:focus{
+   &::before,&::after{
+    transform: scale3d(1, 1,1);
+    opacity: 1;
+   }
+    }
+}
+
+.card3{
+    &::before,
+    &::after{
+        position: absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right: 0;
+        transform: scale3d(0, 0,1);
+        transition: transform .3s ease-out 0s;
+        background:rgba(255, 255, 255, .1);
+        content:'';
+        pointer-events: none;
+
+    }
+    &::before{
+        transform-origin: left top;
+    }
+    &::after{
+transform-origin: right bottom;
+    }
+    &:hover,
+    &:focus{
+        &::before,
+        &::after{
+            transform: scale3d(1,1,1);
+        }
+    }
+
+}
